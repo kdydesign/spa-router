@@ -3,9 +3,8 @@ const { resolve } = require('path')
 
 module.exports = {
   entry: {
-    app: [
-      './router.js',
-    ]
+    router: './router.js',
+    app: './index.js'
   },
 
   output: {
@@ -15,13 +14,14 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      filename: 'index.html'
+      filename: 'index.html',
+      template: 'index.html'
     })
   ],
 
   module: {
     rules: [
-      { test: /\.hbs$/, loader: "handlebars-loader" }
+      { test: /\.hbs$/, loader: 'handlebars-loader' }
     ]
   }
 }
