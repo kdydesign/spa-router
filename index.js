@@ -19,10 +19,10 @@ initialRoutes('history', historyAppDiv)
 initialRoutes('hash', hashAppDiv)
 
 window.onload = () => {
-  const linker = document.querySelectorAll('span.history')
-  const linker2 = document.querySelectorAll('a.hash')
+  const historyLinker = document.querySelectorAll('span.history')
+  const hashLinker = document.querySelectorAll('a.hash')
 
-  linker.forEach(el => {
+  historyLinker.forEach(el => {
     el.addEventListener('click', (evt) => {
       const pathName = evt.target.getAttribute('route')
 
@@ -30,7 +30,7 @@ window.onload = () => {
     })
   })
 
-  linker2.forEach(el => {
+  hashLinker.forEach(el => {
     el.addEventListener('click', (evt) => {
       const pathName = evt.target.getAttribute('route')
 
