@@ -5,12 +5,41 @@
   <title>spa-router-example</title>
 </head>
 <body>
-  <div>
-    <span route="/about">About</span>
-    <span route="/home">Home</span>
+
+<!--BrowserHistory-->
+<div>
+  <!--Link-->
+  <div class="link-container">
+    <div class="link-box">
+      <span class="history" route="/about">History About</span>
+    </div>
+
+    <div class="link-box">
+      <span class="history" route="/home">History Home</span>
+    </div>
   </div>
 
   <!--Content-->
-  <div id="app"></div>
+  <div id="history-app"></div>
+</div>
+
+<hr/>
+
+<!--HashHistory-->
+<div>
+  <!--Link-->
+  <div class="link-container">
+    <div class="link-box">
+      <a class="hash" href="#about">Hash About</a>
+    </div>
+
+    <div class="link-box">
+      <a class="hash" href="#home">Hash Home</a>
+    </div>
+  </div>
+
+  <!--Content-->
+  <div id="hash-app"></div>
+</div>
 </body>
 </html>

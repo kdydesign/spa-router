@@ -1,25 +1,40 @@
-const routes = require('./router')
-const appDiv = document.querySelector('#app')
+// css
+require('./css/style.css')
 
-function routerPush (pathName) {
-  window.history.pushState({}, pathName, pathName)
-  appDiv.innerHTML = routes[pathName]
-}
+// router
+const {
+  initialRoutes,
+  historyRouterPush,
+  hashRouterPush
+} = require('./router')
 
-window.popstate = () => {
-  appDiv.innerHTML = routes[window.location.pathname]
-}
+// app division
+const historyAppDiv = document.querySelector('#history-app')
+const hashAppDiv = document.querySelector('#hash-app')
+
+// Browser History
+initialRoutes('history', historyAppDiv)
+
+// Hash History
+initialRoutes('hash', hashAppDiv)
 
 window.onload = () => {
-  appDiv.innerHTML = routes[window.location.pathname]
-
-  const linker = document.querySelectorAll('span')
+  const linker = document.querySelectorAll('span.history')
+  const linker2 = document.querySelectorAll('a.hash')
 
   linker.forEach(el => {
     el.addEventListener('click', (evt) => {
       const pathName = evt.target.getAttribute('route')
 
-      routerPush(pathName)
+      historyRouterPush(pathName, historyAppDiv)
+    })
+  })
+
+  linker2.forEach(el => {
+    el.addEventListener('click', (evt) => {
+      const pathName = evt.target.getAttribute('route')
+
+      hashRouterPush(pathName, hashAppDiv)
     })
   })
 }
